@@ -118,8 +118,8 @@ class AthenaDataDirectory:
 
     def loadFullMesh(self, fileNum, vars):
         '''Loads full meshes for variables in vars. For a list of file numbers, 
-		use loadFullMeshIter.
-		'''
+	use loadFullMeshIter.
+	'''
         fileName = self.convertNumToFileName(fileNum)
         if type(vars[0]) == list:
             meshes = []
@@ -145,10 +145,10 @@ class AthenaDataDirectory:
 
 def loadInputFile(fileOrDirName):
     '''Reads Athena input file into a dictionary. The variable fileName can
-	either be the name of a directory or an input file (the function assumes
-	names not beginning with "athinput." are directory names). By convention,
-	underscores are not included in input file names. The input file associated 
-	with the directory 'athena_test' would be athena_test/athinput.athenatest
+    either be the name of a directory or an input file (the function assumes 
+    names not beginning with "athinput." are directory names). By convention,
+    underscores are not included in input file names. The input file associated 
+    with the directory 'athena_test' would be athena_test/athinput.athenatest
     '''
     parameterDict = {}
     inputFileName = fileOrDirName
@@ -188,7 +188,7 @@ def loadHDF5(fileName):
 
 def loadFullMesh(fileName, var):
     '''Loads Athena mesh from file for the given variable and meshblock 
-	dimensions.
+    dimensions.
 
     Parameters
     ----------
@@ -205,7 +205,7 @@ def loadFullMesh(fileName, var):
 
 def loadHDF5FromDirectoryIter(dirName, fileNumList, parameterDict=None):
     '''Yields iterator over hdf5 datasets, corresponding to the files with
-	indices in fileNumList. Doesn't build meshblocks into full grid.
+    indices in fileNumList. Doesn't build meshblocks into full grid.
     '''
     fileNames = convertNumToFileName(
         dirName, fileNumList, parameterDict=parameterDict)
@@ -215,9 +215,9 @@ def loadHDF5FromDirectoryIter(dirName, fileNumList, parameterDict=None):
 
 def loadFullMeshFromDirectoryIter(dirName, fileNumList, vars, parameterDict=None):
     '''Yields iterator over a list 3D numpy arrays, corresponding to the files
-	with indices in fileNumList. Extracts the variables in vars and builds a
-	full mesh. The elements of the yielded list are the separate meshes for
-	each variable, in the same order they are given in vars.
+    with indices in fileNumList. Extracts the variables in vars and builds a
+    full mesh. The elements of the yielded list are the separate meshes for
+    each variable, in the same order they are given in vars.
     '''
     meshblocksDim = getMeshblocksDim(dirName, parameterDict=parameterDict)
     fileNames = convertNumToFileName(
@@ -237,7 +237,7 @@ def loadFullMeshFromDirectoryIter(dirName, fileNumList, vars, parameterDict=None
 
 def getMeshblocksDim(fileOrDirName, parameterDict=None):
     '''Gets meshblocks dimensions from an input file or directory. Builds a
-	parameterDict if none is passed.
+    parameterDict if none is passed.
     '''
     if parameterDict is None:
         parameterDict = loadInputFile(inputFile)
@@ -252,8 +252,8 @@ def getMeshblocksDim(fileOrDirName, parameterDict=None):
 
 def convertNumToFileName(dirName, fileNumList, fileType='hdf5', parameterDict=None):
     '''Converts a directory name and number to the name of the corresponding
-	HDF5 file. If fileNum is a list, returns a list of the HDF5 file names.
-	Builds a parameterDict if none is passed.
+    HDF5 file. If fileNum is a list, returns a list of the HDF5 file names.
+    Builds a parameterDict if none is passed.
     '''
     if parameterDict is None:
         parameterDict = loadInputFile(dirName)
@@ -288,8 +288,8 @@ def convertNumToFileName(dirName, fileNumList, fileType='hdf5', parameterDict=No
 
 def buildFullMeshFromHDF5(hdf5File, var):
     '''Builds full mesh using an Athena HDF5 dataset. Originally the HDF5
-	dataset is segmented into separate meshblocks.
-	'''
+    dataset is segmented into separate meshblocks.
+    '''
     logicalLocations = hdf5File['LogicalLocations'][()
                                                     ]  # read in local locations
     locList = list(logicalLocations)
@@ -377,7 +377,7 @@ def buildFullMeshFromMeshBlocks(meshblocks, logicalLocations):
 
 def meshCoords(N, L=1.0):
     '''Volume centered coordinates for a square mesh centered at (0,0,0) with
-	side length L and size NxNxN.
+    side length L and size NxNxN.
     '''
     return np.linspace(-0.5*L + L*0.5/float(N), 0.5*L - L*0.5/float(N), N)
 
