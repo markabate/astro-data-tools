@@ -20,8 +20,7 @@ def athenaPlotHeatMap(fileName, var, meshblocksDim, sliceAxis, sliceCoord=0.0,
 	return plotHeatMap(mesh, sliceAxis, slicecoord, L, title, log, ax)
 
 def plotHeatMap(mesh, sliceAxis, sliceCoord=0.0, L=1.0, title='', log=False, ax=None):
-	'''Plot heat map of a square 3-dimensional mesh, sliced along some axis.
-	'''
+	'''Plot heat map of a square 3-dimensional mesh, sliced along some axis.'''
 	N = len(mesh[0,0])
 	if sliceAxis == 'x':
 		tmpMesh = np.transpose(mesh, [2,0,1])
