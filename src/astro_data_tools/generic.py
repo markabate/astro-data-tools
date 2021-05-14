@@ -5,8 +5,8 @@ import math
 import h5py
 
 def averageOverBins(x, y, bins):
-	'''Smooth data by averaging over given bins. Essentially a customized
-	version of numpy.histogram. Bins anchored on RHS.
+    '''Smooth data by averaging over given bins. Essentially a customized
+    version of numpy.histogram. Bins anchored on RHS.
 
     Parameters
     ----------
@@ -17,7 +17,7 @@ def averageOverBins(x, y, bins):
     bins : list(float)
         RHS location of bins to average over.
 	'''
-	increasing = True
+    increasing = True
 	if x[-1] < x[0]:
 		increasing = False
 
