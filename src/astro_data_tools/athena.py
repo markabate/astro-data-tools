@@ -54,15 +54,15 @@ class AthenaDataDirectory:
     Attributes
     ----------
     absDirName : string
-            Absolute directory name.
+        Absolute directory name.
     shortDirName : string
-            Short directory name.
+        Short directory name.
     inputFileName : string
-            Absolute name for athinput file.
+        Absolute name for athinput file.
     parameterDict : dictionary
-            Contains all parameters from athinput file.
+        Contains all parameters from athinput file.
     meshblocksDim : int[3]
-            List of meshblocks in x, y, and z.
+        List of meshblocks in x, y, and z.
     outputBaseName : string
     outputId : string
     outputType : string
@@ -118,8 +118,8 @@ class AthenaDataDirectory:
 
     def loadFullMesh(self, fileNum, vars):
         '''Loads full meshes for variables in vars. For a list of file numbers, 
-	use loadFullMeshIter.
-	'''
+	    use loadFullMeshIter.
+	    '''
         fileName = self.convertNumToFileName(fileNum)
         if type(vars[0]) == list:
             meshes = []
@@ -193,8 +193,8 @@ def loadFullMesh(fileName, var):
     Parameters
     ----------
     var : list
-            Variables to load from the HDF5 dataset. Must be list of a combination
-            of the module-level variables athena.D, VX, VY, VZ, MX, MY, or MZ.
+        Variables to load from the HDF5 dataset. Must be list of a combination
+        of the module-level variables athena.D, VX, VY, VZ, MX, MY, or MZ.
     meshblocksDim : list[3]
             Number of meshblocks in x, y, and z.
     '''
