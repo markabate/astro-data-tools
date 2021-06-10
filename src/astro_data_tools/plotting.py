@@ -163,4 +163,4 @@ def plotHistogram(inputs, curveLabels=None, colors=None, axesLabels=None, xlim=N
 		ax1.plot(windowXRange, np.ones(len(windowXRange))*expectedValue, 'k--', lw=1)
 
 	ax1.legend(frameon=False, loc="lower right")
-	
+
